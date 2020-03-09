@@ -3,7 +3,7 @@
 """
 Convert a FASTA file to a PHYLIP file
 """
-
+import sys
 from Bio import SeqIO
 
 
