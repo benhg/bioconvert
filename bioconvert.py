@@ -7,7 +7,7 @@ import argparse
 from Bio import SeqIO
 
 
-def convert(input_file, output_file, in_format, out_format):
+def convert(input_file, in_format, output_file, out_format):
     with open(input_file, "rU") as input_handle, open(output_file, "w") as output_handle:
         sequences = SeqIO.parse(input_handle, in_format)
         count = SeqIO.write(sequences, output_handle, out_format) 
