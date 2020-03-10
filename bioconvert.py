@@ -3,7 +3,7 @@
 """
 Convert any biological file format to any other format
 """
-import sys
+import argparse
 from Bio import SeqIO
 
 
@@ -17,12 +17,13 @@ def convert(input_file, output_file, in_format, out_format):
 
 if __name__ == '__main__':
     
-    if len(sys.argv) != 3:
-        print("Usage: bioconvert <input file> <input format> <output file> <output format>")
-        exit(1)
+    parser = argparse.ArgumentParser(description='Convert bioinformatic files')
 
-    input_file = sys.argv[1]
-    output_file = sys.argv[2]
+    parser.add_argument('--input', type=str, help='input file for conversion')
+    parser.add_argument('--infmt', type=str, help='input file format')
+    parser.add_argument('--output', type=str, help='output file for conversion')
+    parser.add_argument('--outfmt', type=str, help='output file format')
+    args = parser.parse_args()
 
-    convert(input_file, output_file)
+    convert(args.input, args.infmt, args.output, args.outfmt)
 
